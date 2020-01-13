@@ -1,0 +1,5 @@
+.idea
+venv
+data/*
+model/*
+src/Autoencoder.py
