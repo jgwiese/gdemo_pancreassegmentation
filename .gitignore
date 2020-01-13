@@ -1,5 +1,4 @@
 .idea
-data/*
 src/__pycache__
 *.swp
 *.swp
