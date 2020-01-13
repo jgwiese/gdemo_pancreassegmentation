@@ -1,2 +1,7 @@
-# pancreas_segmentation_vae
-Performing pancreas segmentation by Variational Autoencoder based architecture on the TCIA Pancreas-CT dataset. TEST
+# VAE Pancreas Segmentation
+Exploring a Variational Autoencoder (VAE) based Model for Pancreas Segmentation on the TCIA Pancreas-CT dataset.
+
+## Architecture
+## Dataset
+## Problem
+## Unsupervised Learning
