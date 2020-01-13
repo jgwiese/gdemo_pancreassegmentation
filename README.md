@@ -26,7 +26,7 @@ The encoder is constructed from a cascade of convolutional layers with kernel_si
 
 ## Results
 ![Image of the reconstruction and segmentation results](.presentation/results.svg.png)
-*Figure 2*: Evaluation of the trained model to unseen data. The top row shows the ground truth of the downsampled dataset. The scans are represented in grayscale and the superposed segmentations in green. The bottom row shows the reconstructions and the predicted segmentations (probability threshold at 0.2).
+**Figure 2**: Evaluation of the trained model to unseen data. The top row shows the ground truth of the downsampled dataset. The scans are represented in grayscale and the superposed segmentations in green. The bottom row shows the reconstructions and the predicted segmentations (probability threshold at 0.2).
 
 ## Outlook
 To improve the reliability of this segmentation approach, the full scale dataset should be used for model training. Also I am testing an alternative encoder-, decoder-model of higher complexity, that still needs to be trained for a decent amount of time to be applicable.
