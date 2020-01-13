@@ -8,8 +8,9 @@ The dataset provides manually performed segmentations of the pancreas for each s
 ## Learning pancreas segmentations from CT scans
 Image segmentation is an active research area in the field of medical imaging. The task is usually performed by medical doctors, but it is tedious and since it relies on pattern recognition, computational image analysis could be applied.
 
-Machine learning models like neural networks can learn complex functions and generalize well, hence they are a popular choice for this task. Especially convolution-based networks are used for pattern recognition. Stacking convolutional layers results in growing perceptive fields and thus gathers information about large areas of the image.
-A common architecture for image segmentation is the U-Net architecture ([AskariHemmat et al., 2019](https://arxiv.org/abs/1908.01073); [Ronneberger et al., 2015](https://arxiv.org/abs/1505.04597)), which is basically a fully convolutional autoencoder style model that uses skip connections to pass through low-level information from encoder to decoder. While this approach yields good accuracy, the skip connections pass over low level information that might get lost in the autoencoded vector of the model, resulting in a limited generalization capability.
+Machine learning models like neural networks can learn complex functions and generalize well, especially convolution-based networks are used for pattern recognition. By stacking convolutional layers the perceptive fields is growing and information about large areas of the image can be gathered.
+A common architecture for image segmentation is the U-Net architecture ([AskariHemmat et al., 2019](https://arxiv.org/abs/1908.01073); [Ronneberger et al., 2015](https://arxiv.org/abs/1505.04597)), which is basically a fully convolutional autoencoder style model that uses skip connections to pass through low-level information from encoder to decoder. This approach yields good accuracy, but since the skip connections pass over low level information from encoder to decoder this might lead to a loss of information in the latent space of the model and resulting in a limited generalization capability.
+
 In this work I therefore do not use the U-Net architecture, but provide an alternative approach to the problem by using a Variational Autoencoder ([Kingma and Welling, 2014](https://arxiv.org/abs/1312.6114)) to learn a compact representation of the CT data in combination with a seperately trained decoder for the pancreas segmentation. First results on a downscaled version of the dataset (64 x 64) show that segmentation can indeed successfully be done by this method.
 
 ## Architecture
@@ -25,7 +26,7 @@ The encoder is constructed from a cascade of convolutional layers with kernel_si
 
 ## Results
 ![Image of the reconstruction and segmentation results](.presentation/results.svg.png)
-*Figure 2*: Evaluation of the trained model to a subset of the validation dataset. The top row shows the ground truth of the downsamled dataset. The scans are represented in grayscale and the superposed segmentations in green. The bottom row shows the reconstructions and the predicted segmentations (probability threshold at 0.2).
+*Figure 2*: Evaluation of the trained model to unseen data. The top row shows the ground truth of the downsampled dataset. The scans are represented in grayscale and the superposed segmentations in green. The bottom row shows the reconstructions and the predicted segmentations (probability threshold at 0.2).
 
 ## Outlook
 To improve the reliability of this segmentation approach, the full scale dataset should be used for model training. Also I am testing an alternative encoder-, decoder-model of higher complexity, that still needs to be trained for a decent amount of time to be applicable.

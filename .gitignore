@@ -1,8 +1,6 @@
 .idea
-venv
 data/*
-model/*
-src/Autoencoder.py
+src/__pycache__
 *.swp
 *.swp
 *~

@@ -60,7 +60,7 @@ class Solver():
 
             if ((epoch % printAt) == 0):
                 losses = losses / batchCounter
-                print("epoch {}, reconstruction loss: {}, segmentation loss: {}".format(
+                print("epoch {}, reconstruction/kld loss: {}, segmentation loss: {}".format(
                     epoch,
                     self.formatScientific(losses[0]),
                     self.formatScientific(losses[1])))
@@ -125,11 +125,11 @@ class Solver():
             t = np.stack([t_in] * 3, axis=0).squeeze().transpose((1, 2, 0))
             mask = t[..., 0] > self.iouThreshold
 
-            x[mask] = np.array([1, 0, 0]) * t[mask]
+            x[mask] = np.array([0, 1, 0.5]) * t[mask]
             plt.imsave(join(output_dir, 'res_{}_sample_{}_in.png'.format(2 ** lod, i)), x)
 
             x_r = np.stack([x_out] * 3, axis=0).squeeze().transpose((1, 2, 0))
             t_r = np.stack([t_out] * 3, axis=0).squeeze().transpose((1, 2, 0))
             mask = t_r[..., 0] > self.iouThreshold
-            x_r[mask] = np.array([1, 0, 0]) * t[mask]
+            x_r[mask] = np.array([0, 1, 0.5]) * t[mask]
             plt.imsave(join(output_dir, 'res_{}_sample_{}_out.png'.format(2 ** lod, i)), x_r)
