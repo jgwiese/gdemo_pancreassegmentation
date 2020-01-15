@@ -34,6 +34,9 @@ The results of this approach are shown in figure 2.
 To improve the reliability of this segmentation approach, the full scale dataset should be used for model training. Also I am testing an alternative encoder-, decoder-model of higher complexity, that still needs to be trained for a decent amount of time to be applicable.
 But first and foremost the 3D nature of the dataset should be incorporated, which encodes additional information about the position of the pancreas. 3D convolutions or recurrent layers are two possibilities of approaching this issue.
 
+## Tools
+The [VAE Latent Space Viewer](https://github.com/paraficial/vae_latent_space_viewer) repository provides a simple tool for exploring the latent space of a trained model on this dataset.
+
 ## References
 AskariHemmat, M., Honari, S., Rouhier, L., Perone, C.S., Cohen-Adad, J., Savaria, Y., David, J.-P., 2019. U-Net Fixed-Point Quantization for Medical Image Segmentation. arXiv:1908.01073 [cs, eess, stat].
 
