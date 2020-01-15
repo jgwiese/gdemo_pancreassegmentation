@@ -19,7 +19,7 @@ A Variational Autoencoder (VAE) compresses its inputs to a lower dimensional vec
 ![Image of VAE approach for segmentation](.presentation/architecture.svg.png)
 **Figure 1**: Architecture for medical image segmentation. A basic VAE is trained on the dataset (top). A second decoder is trained on the latent space of the VAE to perform segmentation.
 
-In this approach (**Figure 1**) a VAE is trained on the dataset by using a loss function combining the L2 distance for the reconstructions and the Kullback-Leibler divergence for latent space regularization (enforcing a gaussian).
+In this approach (Figure 1) a VAE is trained on the dataset by using a loss function combining the L2 distance for the reconstructions and the Kullback-Leibler divergence for latent space regularization (enforcing a gaussian).
 A second decoder retreives the latent vector **z** and is trained on the segmentation labels by using Binary Cross-Entropy loss. Vector **z** is detached from the gradient calculations, hence the segmentation decoder does not influence the VAE encoder, but learns segmentation just from the latent space.
 
 The encoder is constructed from a cascade of convolutional layers with kernel_size=4, stride=2 and padding=1 and a final dense layer, while the decoder networks use a transposed version of the encoder architecture.
